@@ -3,12 +3,10 @@
   (:use org.httpkit.server))
 
 (defn app
-  "接受充值接口调用"
+  "默认程序入口"
   [req]
   (let [action (get-action req)]
-  {:status  200
-   :headers {"Content-Type" "text/html"}
-   :body    action}))
+  (run-action req action)))
 
 (defonce server (atom nil))
 
