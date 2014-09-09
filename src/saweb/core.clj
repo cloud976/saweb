@@ -17,5 +17,5 @@
     (reset! server nil)))
 
 (defn -main [& args]
-  (reset! server (run-server #'app {:port 8000}))
+  (reset! server (run-server #'app {:port 8080}))
   (println "server start"))
