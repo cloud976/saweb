@@ -1,12 +1,11 @@
 (ns saweb.core
-  (:use saweb.route)
+  (:use saweb.app)
   (:use org.httpkit.server))
 
 (defn app
   "默认程序入口"
   [req]
-  (let [action (get-action req)]
-  (run-action req action)))
+  (run req))
 
 (defonce server (atom nil))
 
