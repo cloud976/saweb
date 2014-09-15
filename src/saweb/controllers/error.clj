@@ -1,4 +1,4 @@
-(ns saweb.error)
+(ns saweb.controllers.error)
 
 
 (defn error404

@@ -7,6 +7,7 @@
                  [compojure "1.1.5"]
                  [ring/ring-codec"1.0.0"]
                  [ring/ring-core"1.3.1"]
-                 [http-kit "2.1.18"]]
+                 [http-kit "2.1.18"]
+                 [bultitude "0.2.6"]]
   :main saweb.core
  )
