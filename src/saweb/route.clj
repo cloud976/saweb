@@ -5,7 +5,7 @@
   )
 (apply require (bultitude.core/namespaces-in-dir "src/saweb/controllers"))  ;初始化控制器列表
 
-(def action-table {{"default" "main"} saweb.controllers.controller/actionIndex})
+(def action-table {{"default" "main"} saweb.controllers.controller/actionLogin})
 
 (defn get-controller
   "取得当前控制器名"

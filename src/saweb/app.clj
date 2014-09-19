@@ -20,7 +20,8 @@
 (defn app-init
   "初始化环境变量GET/POST/COOKIE/SESSION等"
   [req]
-  (-> req get-params post-params))
+  (-> req get-params post-params)
+  (.set common/SESSION {}))
 
 (defn run
   "web程序入口"

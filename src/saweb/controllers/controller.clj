@@ -1,19 +1,24 @@
 (ns saweb.controllers.controller
-  (:require [saweb.common :as common]))
+  (:require [saweb.common :as common])
+  (:require [saweb.tmpl :as tmpl]))
 
 (defn actionIndex
   "默认入口函数"
   [req]
-  (Thread/sleep 5000)
-  (println (.get common/GET))
   {:status  200
    :headers {"Content-Type" "text/html"}
-   :body    "调用默认入口"})
+   :body    (tmpl/render "src/saweb/tmpl/index.tmpl" {:name (common/_POST "user")})})
 
 (defn actionLogin
   "默认登录入口"
   [req]
-  (println (.get common/GET))
   {:status  200
    :headers {"Content-Type" "text/html"}
-   :body    "默认登录入口"})
+   :body    (tmpl/render "src/saweb/tmpl/login.tmpl" {})})
+
+(defn actionTest
+  "默认登录入口"
+  [req]
+  {:status  200
+   :headers {"Content-Type" "text/html"}
+   :body    "abca"})

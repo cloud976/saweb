@@ -1,0 +1,14 @@
+<%(use 'saweb.tmpl)%>
+<html>
+<head>
+  <title>测试登录页面</title>
+</head>
+<body>
+  <%(if (= 1 (param :login))(do %>已经登录，<%(echo (param :name))%><%)(do %>
+  <form action='?controller=controller&action=index' method='POST'>
+    <input type='text' name='user' />
+    <input type='submit' value='登录' />
+  </form>
+  <%))%>
+</body>
+</html>
