@@ -1,11 +1,12 @@
 (ns saweb.core
-  (:use saweb.app)
-  (:use org.httpkit.server))
+  (:require [saweb.app :as app])
+  (:use org.httpkit.server)
+  (:require [bultitude.core :only [namespaces-in-dir]]))
 
 (defn app
   "默认程序入口"
   [req]
-  (run req))
+  (app/run req))
 
 (defonce server (atom nil))
 

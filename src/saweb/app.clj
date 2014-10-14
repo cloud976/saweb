@@ -8,19 +8,20 @@
   [req]
   (let [gets (:params (param-tools/assoc-query-params req (:character-encoding req)))]
     (when (map? gets)
-      (dosync (alter common/GET conj gets)))))
+      (.set common/GET gets)) req))
 
 (defn post-params
   "取得当前URL参数"
   [req]
   (let [posts (:params (param-tools/assoc-form-params req (:character-encoding req)))]
     (when (map? posts)
-      (dosync (alter common/POST conj posts)))))
+      (.set common/POST posts)) req))
 
 (defn app-init
   "初始化环境变量GET/POST/COOKIE/SESSION等"
   [req]
-  (get-params req))
+  (-> req get-params post-params)
+  (.set common/SESSION {}))
 
 (defn run
   "web程序入口"
